@@ -1,0 +1,54 @@
+﻿<form class="navbar-form" role="search">
+    <div class="input-group">
+        <div class="input-group-btn">
+            <i class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></i>
+        </div>
+        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" ng-model="searchText" ng-change="search()">
+    </div>
+</form>
+<div class="card-deck-wrapper">
+    <div class="card-deck">
+        <div ng-repeat="movie in movieList" class="col-lg-6 row">
+            <div class="card">
+                <div class="col-lg-12">
+                    <a data-target="#showFull" data-toggle="modal">
+                        <img class="card-img-top" style="width:375px;height:250px;width:50%;" ng-src={{movie.img}} alt="NO IMAGE" ng-click='setModalValue(movie)'>
+                    </a>
+                </div>
+                <div class="card-block">
+                    <span class="col-lg-1"></span>
+                    <br />
+                    <h4 class="card-title">{{movie.title}}</h4>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Show Content Modal-->
+<div id="showFull" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{modalData.title}}</h4>
+            </div>
+            <div>
+                <div class="modal-body row">
+                        <img class="card-img-top center-block" style="width:50%;" ng-src={{modalData.img}} alt="NO IMAGE">
+                </div>
+                <div class="modal-footer">
+                    <div class="text-left">
+                        {{modalData.overview}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
